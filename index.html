@@ -1,118 +1,211 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TRxhtml1-strict.dtd">
+<!DOCTYPE html>
+<html lang="en">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width", initial-scale="1">
-    <meta name="description" content="AMMUK e learning">
-	  <meta name="keywords" content="affordable">
-  	<meta name="author" content="Brad Traversy">
-    <title>Tyfà Learning Centre| Welcome home.</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" src="tyfa.PNG">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aidnest - Your Trusted Service Connection</title>
+    <style>
+        /* Branding Colors */
+        :root {
+            --primary-color: #4CAF50; /* Splash Screen Color */
+            --secondary-color: #f4f4f9; /* Light Neutral Background */
+            --accent-color: #333; /* Darker Shade for Text */
+            --highlight-color: #ffcc00; /* Yellow for Accent Highlights */
+        }
 
-  </head>
-  <body>
-<header>
-      <div class="container">
-        <div id="branding">
-          <h1><span class="highlight">Tyfà&#8482</span> Learning Centre</h1>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--secondary-color);
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Splash Screen Styles */
+        .splash-screen {
+            background-color: var(--primary-color);
+            position: fixed; /* Fixed to cover entire viewport */
+            top: 0; /* Ensure it starts from the top */
+            left: 0; /* Align to the left */
+            width: 100%;
+            height: 100vh; /* Ensure it fits the screen */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            transition: opacity 1s ease;
+            padding-top: 10px; /* Push content down to avoid white line */
+        }
+
+        .splash-logo {
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .splash-tagline {
+            font-size: 18px;
+            color: var(--highlight-color);
+            margin-top: 10px;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Dashboard Adverts */
+        .dashboard {
+            position: absolute;
+            bottom: 20px; /* Position at the bottom of the splash screen */
+            width: 100%;
+            white-space: nowrap; /* Prevent line breaks */
+            overflow: hidden; /* Hide overflow */
+            color: white; /* Text color */
+            font-size: 20px; /* Font size for adverts */
+        }
+
+        .advert-container {
+            display: inline-block; /* Allows scrolling for multiple adverts */
+            animation: scroll 20s linear infinite; /* Adjust speed for better visibility */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%); /* Start off-screen right */
+            }
+
+            100% {
+                transform: translateX(-100%); /* End off-screen left */
+            }
+        }
+
+        .advert {
+            display: inline-block;
+            margin: 0 50px; /* Space between adverts */
+        }
+
+        /* After Splash Screen Styles */
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 800px;
+            background-color: skyblue; /* Change to skyblue*/
+            height:900px;
+            margin-top:-1px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .logo-circle {
+            background-color: var(--highlight-color);
+            border-radius: 50%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+        }
+
+        .home-icon {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://img.icons8.com/material-rounded/96/ffffff/home.png');
+            background-size: cover;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: #6a8dff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: #40cbff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-logo">aidNest</div>
+        <div class="splash-tagline">Your Trusted Service Connection</div>
+        <div class="spinner"></div>
+
+        <!-- Dashboard of Adverts -->
+        <div class="dashboard">
+            <div class="advert-container">
+                <div class="advert">Find the best home services!</div>
+                <div class="advert">Reliable and affordable solutions.</div>
+                <div class="advert">Discover top-rated providers.</div>
+                <div class="advert">Exceptional service at your fingertips!</div>
+                <div class="advert">Your satisfaction is our priority!</div>
+            </div>
         </div>
-        <nav>
-          <ul>
-            <li class="current"><a href="home.html">Home</a></li>
-            <li >OUTLINE</li>
-            <li>PROGRESS</li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    </div>
 
-    <section id="showcase">
-      <div class="container">
-        <h1>Learning made easy with AMMUK</h1>
-        <p>The Tyfà family feels great as you progress in your career basically as a student of B. Sci with Education at MUK or any university around that may use similar or related curriculum. We therefore present to you AMMUK,  your coursework attendance assistant. </p>
-      </div>
-    </section>
-
-    <section id="newsletter">
-      <div class="container">
-        <h1>Subscribe To Our Newsletter</h1>
-        <form>
-          <input type="email" placeholder="Enter Email..." required>
-          <button type="submit" class="button_1">Subscribe</button>
-        </form><br>
-        <img src="sky.PNG" class="circular">
-      </div>
-    </section>
-
-<section id="main">
-      <div class="container">
-        <article id="main-col">
-          
-          <ul id="services">
-            <li style="background-color: Green; color:green">
-             
-             <span style="text-align: left;">
-                <ul>
-            <li><h2>Bachelor of Science With Education</h2></li>
-             <hr>
-            <li><h4>Data to assist you in your day to day learning</h4></li>
-             <hr>
-           <li> <h4>Trusted by many</h4></li>
-             <hr>
-            <li> <h4>Based on College of Education and External studies - Makerere University</h4></li>
-              
-						  </ul>
-            </span>
-          </ul>
-        </article>
-<header>
-      <div class="container">
-        <div id="branding">
-          
+    <!-- Branding Content (After Splash) -->
+    <div class="brand-container" id="branding">
+        <div class="logo-circle">
+            <div class="home-icon"></div>
         </div>
-        <nav>
-          <ul>
-            <li class="current">
-                <p>Visit Outline below</p>
-            <li style="text-align: center"><a href="outline.html"><button class="button_1">GO TO OUTLINE</button></a></li>
-            
-          </ul>
-        </nav>
-      </div>
-    </header>
-        <aside id="sidebar">
-          <div class="dark">
-            <h3>Get A Quote</h3>
-            <form class="quote">
-  						<div>
-  							<label>Name</label><br>
-  							<input type="text" placeholder="Name">
-  						</div>
-  						<div>
-  							<label>Email</label><br>
-  							<input type="email" placeholder="Email Address">
-  						</div>
-  						<div>
-  							<label>Message</label><br>
-  							<textarea placeholder="Message"></textarea>
-  						</div>
-  						<button class="button_1" type="submit">Send</button>
-					</form>
-          </div>
-        </aside>
-      </div>
-    </section>
-    
+        <h1>Welcome to Aidnest</h1>
+        <p>Connecting you to trusted, reliable service providers right from the comfort of your home. Aidnest ensures you get the best support when you need it most.</p>
+        <button class="cta-button"><a href="home.html">Get Started</a></button>
+    </div>
 
-    
-    <footer>
-      <p>Tyfà family. &copy; 2024 All rights reserved</p>
-      <br>
-      <p><a href=""><button>Terms & Conditions</button></a></p>
-    </footer>
-  </body>
+    <script>
+        // Splash screen will disappear after 60 seconds
+        window.onload = function () {
+            const splashScreen = document.getElementById('splashScreen');
+            const branding = document.getElementById('branding');
+
+            setTimeout(() => {
+                splashScreen.style.opacity = '0';
+                branding.style.opacity = '1';
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                }, 1000); // Delay for fade out
+            }, 20000); // 20 seconds for splash screen
+        };
+    </script>
+
+</body>
+
 </html>
